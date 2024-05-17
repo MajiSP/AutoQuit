@@ -100,7 +100,7 @@ class TextOverlay:
                 self.root.destroy()
                 return
 
-        process_name_without_ext = self.process_name.replace(".exe", "")
+        process_name = self.process_name.replace(".exe", "")
 
         self.root.deiconify()
         self.root.overrideredirect(True)
@@ -112,7 +112,7 @@ class TextOverlay:
         monitor_height = self.root.winfo_screenheight()
 
         self.default_font = tkfont.Font(family=self.font_name, size=self.font_size)
-        text1_width = self.default_font.measure(f"Ctrl+Shift+T: Close {process_name_without_ext}")
+        text1_width = self.default_font.measure(f"Ctrl+Shift+T: Close {process_name}")
         text2_width = self.default_font.measure("HOME: Show/Hide UI")
         text3_width = self.default_font.measure("CTRL+C: Close Program")
         text_height = self.default_font.metrics("linespace")
@@ -124,7 +124,7 @@ class TextOverlay:
 
         self.root.geometry(f"{window_width}x{window_height}+{window_x}+{window_y}")
         outline_font = tkfont.Font(family=self.font_name, size=self.font_size, weight="bold")
-        self.label1 = tk.Label(self.root, text=f"Ctrl+Shift+T: Close {process_name_without_ext}", font=outline_font, fg=self.font_color, bg="black")
+        self.label1 = tk.Label(self.root, text=f"Ctrl+Shift+T: Close {process_name}", font=outline_font, fg=self.font_color, bg="black")
         self.label1.place(x=0, y=0)
         self.label2 = tk.Label(self.root, text="HOME: Show/Hide UI", font=outline_font, fg=self.font_color, bg="black")
         self.label2.place(x=0, y=text_height)
